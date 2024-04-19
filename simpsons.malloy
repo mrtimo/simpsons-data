@@ -1,0 +1,57 @@
+
+source: character is duckdb.table('./Character_Award.csv') extend {
+    primary_key: award_id
+    
+}
+source: person_table is duckdb.table('./Person.csv') extend {
+    primary_key: name
+}
+source: award is duckdb.table('./Award.csv') extend {
+    join_one: character with award_id
+    join_one: person_table with person
+    primary_key: episode_id
+}
+source: credit is duckdb.table('./Credit.csv') extend {
+    primary_key: episode_id
+}
+
+source: keyword is duckdb.table('./Keyword.csv') extend {
+    dimension: episode_id is column0
+    dimension: keyword is column0
+    primary_key: episode_id
+}
+
+source: vote is duckdb.table('./Vote.csv') extend {
+    primary_key: episode_id
+}
+
+source: episode is duckdb.table('./Episode.csv') extend {
+    primary_key: episode_id
+    join_one: award with episode_id
+    join_one: keyword with episode_id
+    join_one: vote with episode_id
+    join_one: credit with episode_id
+}
+
+//List 1 - Problem 4
+run: episode -> {
+    group_by: award.award
+}
+
+//List 2- Problem 2 Show the cast from the episode with the id of "S7-E12".
+run: episode -> {
+    select: award.character.character
+    where: episode_id = "S7-E12"
+}
+
+
+//List 3 - Question 1 -  Which episodes have won awards that begin with "Outstanding"?
+
+
+run: episode -> {
+    group_by: season, episode, title, award.award_category, award.award
+    where: award.award ~ 'Outstanding%'
+    order_by: season desc, episode desc
+
+}
+
