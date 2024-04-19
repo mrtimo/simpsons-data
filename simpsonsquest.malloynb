@@ -1,0 +1,114 @@
+>>>markdown
+## Composing with Queries
+The code below will import a source from another file
+
+Answer the questions below using this data
+>>>malloy
+import {episode} from "simpsons.malloy"
+>>>markdown
+Question 1
+1. Make an alphabetical list of episode titles.
+- Show episode title and air date
+>>>malloy
+run: episode -> {
+    group_by: title
+}
+>>>markdown
+Question 2
+2. Make a list of episodes based on their ratings.
+- Show episode title and rating.
+- Sort the list by rating in descending order, then by title in ascending order.
+>>>markdown
+Question 3
+3. List the different characters in the Character_Award table.
+- Show an alphabetical list of character names.
+- Be sure your result does not contain any duplicates
+>>>malloy
+>>>markdown
+Question 4
+4. List the different awards shown in the Award table.
+- Make an alphabetical list of award names.
+- Be sure each award name appears only once.
+>>>malloy
+>>>markdown
+Question 5
+Which episode got the most ten-star ratings?
+- Show the episode ID and the number of votes.
+- This information is found in the Vote table.
+- Your query should produce a single record.
+>>>malloy
+>>>markdown
+Question 6 
+- What is the most recent year for an award nomination and what was the award?
+- Each record in the Award table indicates an award nomination, with the outcome of the nomination shown in the result column. You do not need to refer to the result column for this query. 
+- Show the organization, year, award category, and award.
+- Your query should produce a single record.
+>>>malloy
+>>>markdown
+Question 7
+Which combination of episode and stars got the most votes?
+- Show the episode ID and the number of stars, and the number of votes.
+- Your query should produce a single record.
+>>>malloy
+>>>markdown
+Question 8
+- Show the first 20 names of an alphabetical list of people.
+- Show the name column only
+>>>malloy
+>>>markdown
+Question 9 
+1. List the roles played by Hank Azaria in the episode with ID "S5-E11".
+- Show the category and role.
+- Sort the result alphabetically by role
+>>>malloy
+>>>markdown
+Question 10
+2. Show the cast from the episode with the id of "S7-E12".
+- Show the person and the role.
+>>>malloy
+>>>markdown
+Question 11
+3. Suppose you purchased the DVD's for the complete fifth and seventh seasons at a garage sale. Build a list to help you to watch the episodes in order from the lowest rated episode to the highest.
+- Show the season, episode, title and rating of all the episodes from the two seasons.
+- Sort the results by rating in ascending order, then by title in ascending order.
+>>>malloy
+>>>markdown
+Question 12
+4. List the 2006 awards nominations (not wins) for awards that are either in the category "DVDX Award" or the award is "Favorite Cartoon".
+- Show award category and award.
+>>>malloy
+>>>markdown
+Question 13
+5. List the awards for Matt Groening and Yeardley Smith from 1990 to 1995.
+- Show the year, award category, and award.
+>>>malloy
+>>>markdown
+Question 14
+1. Which episodes have won awards that begin with "Outstanding"?
+- Show season number, episode number, title, award category, and award name.
+- Sort the result by season number then by episode number
+- Be sure to remove any duplicates from the list.
+>>>malloy
+>>>markdown
+Question 15
+2. Which people have won awards in the category "Primetime Emmy" for playing characters?
+- Show the person's name, character, and award name.
+- Sort the result alphabetically by person then by character.
+- Be sure to remove any duplicates from the list.
+- Note: Sometimes the "person" receiving the award is a company. It is okay to include companies in the result.
+>>>malloy
+>>>markdown
+Question 16
+3. In which episodes has the character named "Rabbi Hyman Krustofski" appeared?
+- Show the episode ID, number in series, and title.
+- Sort the results in descending order by the episode number in series
+>>>malloy
+>>>markdown
+Question 17
+4. What is the highest rated episode in which the character named "Apu Nahasapeemapetilon" appears?
+- Show the episode id, title, airdate, and rating
+>>>malloy
+>>>markdown
+Question 18
+5. Which episodes have award-winning songs?
+- Show the episode id, title and name of the song.
